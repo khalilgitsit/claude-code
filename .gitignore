@@ -1,0 +1,3 @@
+statusline/cache/
+*.conf
+!statusline/statusline.defaults.conf

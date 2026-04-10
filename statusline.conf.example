@@ -1,0 +1,13 @@
+# Your Status Line Config
+# Copy to ~/.claude/statusline.conf and customize.
+# Overrides defaults in statusline/statusline.defaults.conf
+
+# Choose which sections to display (order matters)
+# Available: context,env,tokens,cost,rate,skills,mcps,agent,dir,files,quote
+STATUSLINE_SECTIONS="context,env,tokens,cost,rate,skills,mcps,agent,dir,files"
+
+# Theme: dark | light | minimal
+STATUSLINE_THEME="dark"
+
+# Show loaded context files on line 3
+STATUSLINE_FILES_ENABLED=true
