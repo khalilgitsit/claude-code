@@ -270,25 +270,122 @@ After presenting the organized plan from Phase 4, transition naturally:
 - [ ] A specific review date or cadence is committed to
 - [ ] The user can answer: "If someone asked me tomorrow where this project stands and what's happening next, I'd know exactly what to say"
 
-## Final Output
+## Deliverables: Scaffold + Populated Files
 
-After all phases are complete, produce a clean summary document:
+After Phase 5 completes, POBO produces a project folder scaffold with populated files. This is the bridge from "planned" to "executable."
+
+### Step 1 — Ask: Code or Not?
+
+Before scaffolding, ask once:
+
+> "Does this project involve code or a repo?"
+
+- **Yes** → 9-item structure (adds `repo/`)
+- **No** → 8-item structure
+
+### Step 2 — Ask: Where Should It Live?
+
+Propose a path based on business/client context that surfaced during the interview:
+
+- Personal / infrastructure → `~/khalils-vault/atlas/projects/{slug}/`
+- Business-owned → `~/khalils-vault/atlas/businesses/{biz}/projects/{slug}/`
+- Client-owned → `~/khalils-vault/atlas/clients/{client}/projects/{slug}/`
+
+Derive `{slug}` from the project name (kebab-case). Confirm the full path with the user before creating anything.
+
+### Step 3 — Create the Structure
+
+**8-item standard:**
+
+| # | Item | Type | Contents |
+|---|---|---|---|
+| 1 | `_brief.md` | file | Purpose, Principles, Outcome, Vision |
+| 2 | `_status.md` | file | Current phase, Next action, Open items, Last updated, Phases overview |
+| 3 | `plan.md` | file | Full POBO output (see template below) |
+| 4 | `notes/` | dir | Running notes — `brainstorm.md` lands here from Phase 3 |
+| 5 | `reference/` | dir | Source material, research, inputs |
+| 6 | `specs/` | dir | Detailed specs for builds and deliverables |
+| 7 | `deliverables/` | dir | Final outputs |
+| 8 | `_archive/` | dir | Retired material |
+
+**9th item for code projects:**
+
+| # | Item | Type | Contents |
+|---|---|---|---|
+| 9 | `repo/` | dir | Local clone, or a `README.md` stub pointing at the remote |
+
+Empty directories get a `.gitkeep` so the structure commits cleanly.
+
+### Step 4 — Never Clobber
+
+If the target folder exists, halt and ask the user how to proceed. Do not overwrite an existing project folder.
+
+## File Templates
+
+### `_brief.md`
 
 ```markdown
-## [Project Name]
+# [Project Name]
 
-### Purpose
-[1-2 sentence purpose statement]
+## Purpose
+[1-2 sentence purpose statement — why this project exists]
 
-### Principles
+## Principles
 - [Principle 1]
 - [Principle 2]
 - [Principle 3]
 
-### Outcome Vision
+## Outcome
+[The concrete end state — what "done" looks like in measurable terms]
+
+## Vision
+[2-4 sentence vivid description of success — what it feels like, what's different in the world when this is complete]
+```
+
+### `_status.md`
+
+```markdown
+# Status — [Project Name]
+
+**Last updated:** YYYY-MM-DD
+
+## Current Phase
+[Phase name from the Organized Plan — which phase is active right now]
+
+## Next Action
+[The single concrete next action — physical, specific, doable in 15 minutes]
+**Where it lives:** [Task manager, calendar block, etc.]
+**Owner:** [Name]
+
+## Open Items
+- [ ] [Open item 1]
+- [ ] [Open item 2]
+
+## Phases Overview
+1. **[Phase 1 Name]** — [One-line summary] — Owner: [Name]
+2. **[Phase 2 Name]** — [One-line summary] — Owner: [Name]
+3. **[Phase 3 Name]** — [One-line summary] — Owner: [Name]
+```
+
+### `plan.md`
+
+```markdown
+# [Project Name] — POBO Plan
+
+**Created:** YYYY-MM-DD
+
+## Purpose
+[1-2 sentence purpose statement]
+
+## Principles
+- [Principle 1]
+- [Principle 2]
+- [Principle 3]
+
+## Outcome Vision
 [2-4 sentence description of what done looks like]
 
-### Organized Plan
+## Organized Plan
 
 **Phase 1: [Phase Name]** — Owner: [Name]
 - [Action item]
@@ -302,25 +399,37 @@ After all phases are complete, produce a clean summary document:
 - [Action item]
 - [Action item]
 
-### Next Action
+## Next Action
 > [The single concrete next action — bold and prominent]
 > **Where it lives:** [Task manager, calendar block, etc.]
 > **Owner:** [Name]
 
-### Project List Entry
+## Project List Entry
 > "[Short project name for your GTD Projects list]"
 
-### Constraint
+## Constraint
 > [The single biggest bottleneck and what will unblock it]
 
-### Review Cadence
+## Review Cadence
 > [Specific date for next review, or recurring cadence]
 
-### Notes
+## Notes
 [Any dependencies, risks, delegation opportunities, or timing considerations]
 ```
 
-After presenting the summary, ask: "Want me to save this as a document, or is there anything you'd change first?"
+### Notes on the three files
+
+- **`_brief.md`** is durable — it answers "what and why." It rarely changes.
+- **`_status.md`** is living — it answers "where are we now." Update every time the project moves.
+- **`plan.md`** is a snapshot — the POBO output at creation time. Don't edit it; it's the historical record of how the project was originally framed.
+
+## Confirm Before Creating
+
+After presenting the proposed structure and paths, ask:
+
+> "Ready to scaffold at `[full path]`? I'll create the 8 [or 9] items and populate `_brief.md`, `_status.md`, `plan.md`, and `notes/brainstorm.md`."
+
+Only create after the user confirms.
 
 ## Edge Cases
 
