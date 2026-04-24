@@ -1,6 +1,6 @@
 # Claude Code Setup
 
-My Claude Code configuration. Currently includes the status line.
+My Claude Code configuration — status line and skills.
 
 ## Status Line
 
@@ -95,3 +95,18 @@ Then add `mysection` to `STATUSLINE_SECTIONS` in your config.
 
 - bash 4+
 - jq
+
+## Skills
+
+### POBO Planner
+
+A guided conversational planning skill based on David Allen's GTD Natural Planning Model. Walks you through four phases — Purpose & Principles, Outcome Visioning, Brainstorm, Organize — plus an Execution Bridge.
+
+Install:
+
+```bash
+mkdir -p ~/.claude/skills/pobo
+cp skills/pobo/SKILL.md ~/.claude/skills/pobo/SKILL.md
+```
+
+Invoke with `/pobo` in Claude Code.
